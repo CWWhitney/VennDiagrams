@@ -3,6 +3,7 @@
 
 rawug_orn <-
   read.csv("AllRawNoWeeds_v7.csv") #dataframe of first visit only
+
 #remove ornaments,and visit2 counts
 rawug <- rawug_orn[which(
   rawug_orn$PrimaryUseOrnament < '1'
@@ -13,27 +14,25 @@ rawug <- rawug_orn[which(
 
 raw <-
   rawug[c(3, 16, 170)] #District=3 BotanicalName=16 one=170 22=countsvisit1
+
 library(plyr)
+
 rawug.df <- ddply(raw,
                   c("District", "BotanicalName"),
                   summarise,
                   sum.plants = sum(one))
 library(reshape)
+
 ugvennmelt <-
   melt(rawug.df, id = c("District", "BotanicalName", measured = c("sum.plants")))
+
 names(ugvennmelt)
+
 ugvenncast <- cast(ugvennmelt,   BotanicalName ~ District, sum)
-#library(limma)
-#venn <- ugvenncast[2:4]
-#count <- vennCounts(venn)
-#colnames(count) <- c('Bushenyi', 'Rubirizi', 'Sheema', 'Counts')
+
 # plot the diagram:
-dev.off()
-par(family = "serif")
-#vennDiagram(count, names=c('Bushenyi', 'Rubirizi', 'Sheema'),
-#            cex = 1, lwd = 1,circle.col=c("red","green","blue"),family='serif')
 #Proportional Plot
-dev.off()
+
 par(family = "serif")
 library(venneuler)
 su <- venneuler(
