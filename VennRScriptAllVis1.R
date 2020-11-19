@@ -45,9 +45,9 @@ Venn_3_Regions <- venn.diagram(
                  category.names = c("Bushenyi" , "Rubirizi" , "Sheema"),
                  filename = NULL,
                  output = TRUE, 
-                 height = 3000,
-                 width = 3000,
-                 resolution = 300
+                 height = 1000,
+                 width = 1000,
+                 resolution = 600
                )
 
 
