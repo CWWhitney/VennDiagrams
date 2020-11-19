@@ -2,7 +2,7 @@
 #From the reshape package http://had.co.nz/reshape/
 
 rawug_orn <-
-  read.csv("AllRawNoWeeds_v7.csv") #dataframe of first visit only
+  read.csv("AllRawNoWeeds_v7.csv") #dataframe of visits to farms
 
 #remove ornaments,and visit2 counts
 rawug <- rawug_orn[which(
@@ -15,12 +15,14 @@ rawug <- rawug_orn[which(
 raw <-
   rawug[c(3, 16, 170)] #District=3 BotanicalName=16 one=170 22=countsvisit1
 
+# Load library
 library(plyr)
 
 rawug.df <- ddply(raw,
                   c("District", "BotanicalName"),
                   summarise,
                   sum.plants = sum(one))
+# Load library
 library(reshape)
 
 ugvennmelt <-
@@ -30,25 +32,14 @@ names(ugvennmelt)
 
 ugvenncast <- cast(ugvennmelt,   BotanicalName ~ District, sum)
 
-# plot the diagram:
-#Proportional Plot
 
-par(family = "serif")
-library(venneuler)
-su <- venneuler(
-  c(
-    Bushenyi = 37,
-    Sheema = 10,
-    Rubirizi = 38,
-    "Bushenyi&Sheema" = 18,
-    "Bushenyi&Rubirizi" = 24,
-    "Sheema&Rubirizi" = 15 ,
-    "Bushenyi&Sheema&Rubirizi" = 68
-  )
-)
-#su$labels <- c('Bushenyi', 'Sheema', 'Rubirizi')#####
-su$labels <- c(paste(""), #  to include counts \n ,59+24+26+71),
-               paste(""), # to include counts ,19+24+17+71),
-               paste("")# to include counts ,,50+26+17+71))
-               plot(su, col = c("red", "blue", "green"))
+# Load library
+               library(VennDiagram)
+# Plot
+               venn.diagram(
+                   x = list(ugvenncast$Bushenyi, ugvenncast$Rubirizi, ugvenncast$Sheema),
+                 category.names = c("Bushenyi" , "Rubirizi" , "Sheema"),
+                 filename = 'Venn_3_Regions',
+                 output=TRUE
+               )
                
