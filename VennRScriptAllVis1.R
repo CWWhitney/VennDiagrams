@@ -35,11 +35,18 @@ ugvenncast <- cast(ugvennmelt,   BotanicalName ~ District, sum)
 
 # Load library
                library(VennDiagram)
-# Plot
+# Plot with three
                venn.diagram(
                    x = list(ugvenncast$Bushenyi, ugvenncast$Rubirizi, ugvenncast$Sheema),
                  category.names = c("Bushenyi" , "Rubirizi" , "Sheema"),
                  filename = 'Venn_3_Regions',
                  output=TRUE
                )
+# Plot with five
+               venn.diagram(
+                 x = list(ugvenncast$Bushenyi, ugvenncast$Rubirizi, ugvenncast$Sheema, ugvenncast$Rubirizi, ugvenncast$Sheema),
+                 category.names = c("Bushenyi1" , "Rubirizi1" , "Sheema", "Bushenyi2" , "Rubirizi2" ),
+                 filename = 'Venn_5_Regions',
+                 output=TRUE
+               )               
                
