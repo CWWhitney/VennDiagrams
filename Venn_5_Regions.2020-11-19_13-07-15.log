@@ -1,0 +1,13 @@
+INFO [2020-11-19 13:07:15] $x
+INFO [2020-11-19 13:07:15] list(ugvenncast$Bushenyi, ugvenncast$Rubirizi, ugvenncast$Sheema, 
+INFO [2020-11-19 13:07:15]     ugvenncast$Rubirizi, ugvenncast$Sheema)
+INFO [2020-11-19 13:07:15] 
+INFO [2020-11-19 13:07:15] $category.names
+INFO [2020-11-19 13:07:15] c("Bushenyi1", "Rubirizi1", "Sheema", "Bushenyi2", "Rubirizi2")
+INFO [2020-11-19 13:07:15] 
+INFO [2020-11-19 13:07:15] $filename
+INFO [2020-11-19 13:07:15] [1] "Venn_5_Regions"
+INFO [2020-11-19 13:07:15] 
+INFO [2020-11-19 13:07:15] $output
+INFO [2020-11-19 13:07:15] [1] TRUE
+INFO [2020-11-19 13:07:15] 
