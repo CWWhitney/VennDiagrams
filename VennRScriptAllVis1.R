@@ -12,6 +12,8 @@ rawug <- rawug_orn[which(
     rawug_orn$FullDescription > '0'
 ), ] #exclude ornamentals and unidentified
 
+#Subset for three ring Venn ####
+
 raw <-
   rawug[c(3, 16, 170)] #District=3 BotanicalName=16 one=170 22=countsvisit1
 
@@ -35,11 +37,13 @@ ugvenncast <- cast(ugvennmelt,   BotanicalName ~ District, sum)
 
 # Load library
                library(VennDiagram)
-# Plot
+
+# Plot with three ring Venn ####
                venn.diagram(
                    x = list(ugvenncast$Bushenyi, ugvenncast$Rubirizi, ugvenncast$Sheema),
                  category.names = c("Bushenyi" , "Rubirizi" , "Sheema"),
-                 filename = 'Venn_3_Regions',
+                 filename = 'Venn_3_Regions.tiff',
+                 height = 4,
+                 width = 4,
                  output=TRUE
                )
-               
