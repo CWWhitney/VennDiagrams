@@ -40,11 +40,19 @@ ugvenncast <- cast(ugvennmelt,   BotanicalName ~ District, sum)
 
 # Plot with three ring Venn ####
 
-               venn.diagram(
+Venn_3_Regions <- venn.diagram(
                    x = list(ugvenncast$Bushenyi, ugvenncast$Rubirizi, ugvenncast$Sheema),
                  category.names = c("Bushenyi" , "Rubirizi" , "Sheema"),
-                 filename = 'Venn_3_Regions.tiff',
-                 height = 4,
-                 width = 4,
-                 output=TRUE
+                 filename = NULL,
+                 output = TRUE, 
+                 height = 3000,
+                 width = 3000,
+                 resolution = 300
                )
+
+
+# Save to png
+
+png("Venn_3_Regions.png")
+grid.draw(Venn_3_Regions)
+dev.off()
