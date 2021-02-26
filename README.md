@@ -2,7 +2,7 @@
 
 Accompanyment to studies on the plant diversity in homegardens of three regions in Uganda (Whitney et al. 2018a, b).
 
-![Plant diversity across three regions of Southwest Uganda](Venn_3_Regions.png)
+![Plant diversity across three regions of Southwest Uganda](figures/Venn_3_Regions.png)
 
 ### References
 

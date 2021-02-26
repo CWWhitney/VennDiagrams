@@ -2,7 +2,7 @@
 #From the reshape package http://had.co.nz/reshape/
 
 rawug_orn <-
-  read.csv("AllRawNoWeeds_v7.csv") #dataframe of visits to farms
+  read.csv("data/AllRawNoWeeds_v7.csv") #dataframe of visits to farms
 
 #remove ornaments,and visit2 counts
 rawug <- rawug_orn[which(
@@ -53,6 +53,6 @@ Venn_3_Regions <- venn.diagram(
 
 # Save to png
 
-png("Venn_3_Regions.png")
+png("figures/Venn_3_Regions.png")
 grid.draw(Venn_3_Regions)
 dev.off()
